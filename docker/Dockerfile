@@ -1,4 +1,4 @@
-FROM nvidia/cuda:10.2-cudnn8-devel-ubuntu18.04
+FROM nvidia/cuda:11.7.1-cudnn8-devel-ubuntu18.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -6,7 +6,7 @@ RUN apt-get update --fix-missing
 RUN apt-get install -y python3 python3-pip
 RUN pip3 install --upgrade pip
 RUN pip3 install tensorflow-gpu==2.4.0
-RUN pip3 install torch==1.7.0
+RUN pip3 install torch==1.7.1+cu110 torchvision==0.8.2+cu110 -f https://download.pytorch.org/whl/cu110/torch_stable.html
 RUN pip3 install tensorflow-datasets
 
 # install openvino
